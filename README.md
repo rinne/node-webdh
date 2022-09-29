@@ -6,6 +6,7 @@ exchange function, which exports all exchange material and shared
 secrets and keys derived from the shared secrets as strings that are
 easy to use for various purposes.
 
+
 Reference
 =========
 
@@ -63,7 +64,6 @@ naturally the other participant of the exchange is not able to
 calculate the secret before challenge is called and the result is
 delivered to the other participant.
 
-
 async WebDH.prototype.key(id)
 -----------------------------
 
@@ -78,24 +78,24 @@ before generate throws an error. There is no need to call function
 secret before this call or ever if only named keys are used.
 
 ```
-// Server                                    // Client
-var kex = new WebDH();                       var kex = new WebDH();
-// send and receive are                      // send and receive are
-// just pseudo calls to                      // just pseudo calls to
-// denote that the                           // denote that the
-// challenge must be                         // challenge must be
-// deliveder to the other                    // deliveder to the other
-// participant somehow.                      // participant somehow.
-send(kex.challenge());       --------->      var c = receive();
-var c = receive();           <---------      send(kex.challenge())
-kex.generate(c);                             kex.generate(c);
-var k1 = kex.key(1);                         var k1 = kex.key(1);
-var k2 = kex.key(2);                         var k2 = kex.key(2);
-var kf = kex.key('foo');                     var kf = kex.key('foo');
-// 3 independent keys                        // 3 independent keys
-// are now shared between                    // are now shared between
-// the client and me.                        // the server and me.
+// Server                                      // Client
+var kex = new WebDH();                         var kex = new WebDH();
+// send and receive are                        // send and receive are
+// just pseudo calls to                        // just pseudo calls to
+// denote that the                             // denote that the
+// challenge must be                           // challenge must be
+// deliveder to the other                      // deliveder to the other
+// participant somehow.                        // participant somehow.
+send(await kex.challenge());     --------->    await kex.generate(receive());
+await kex.generate(receive());   <---------    send(await kex.challenge())
+var k1 = await kex.key(1);                     var k1 = await kex.key(1);
+var k2 = await kex.key(2);                     var k2 = await kex.key(2);
+var kf = await kex.key('foo');                 var kf = await kex.key('foo');
+// 3 independent keys                          // 3 independent keys
+// are now shared between                      // are now shared between
+// the client and me.                          // the server and me.
 ```
+
 
 Author
 ======
