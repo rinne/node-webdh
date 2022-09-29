@@ -1,0 +1,36 @@
+{
+	"name": "webdh",
+	"version": "1.0.0",
+	"description": "Diffie-Hellman exchange for Web",
+	"main": "webdh.js",
+	"scripts": {
+		"test": "node ./test/test.js"
+	},
+	"engines": {
+		"node": ">=12.0.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/rinne/node-webdh.git"
+	},
+	"keywords": [
+		"key exchange",
+		"cryptography",
+		"nodejs",
+		"web"
+	],
+	"author": {
+		"name": "Timo J. Rinne",
+		"email": "tri@iki.fi",
+		"url": "https://github.com/rinne/"
+	},
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/rinne/node-webdh/issues"
+	},
+	"homepage": "https://github.com/rinne/node-webdh#readme",
+	"dependencies": {
+		"b64ux": "^1.0.2",
+		"keeptime": "^1.5.0"
+	}
+}
