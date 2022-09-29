@@ -1,6 +1,6 @@
 {
 	"name": "webdh",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Diffie-Hellman exchange for Web",
 	"main": "webdh.js",
 	"scripts": {

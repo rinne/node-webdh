@@ -84,7 +84,7 @@ var kex = new WebDH();                         var kex = new WebDH();
 // just pseudo calls to                        // just pseudo calls to
 // denote that the                             // denote that the
 // challenge must be                           // challenge must be
-// deliveder to the other                      // deliveder to the other
+// delivered to the other                      // delivered to the other
 // participant somehow.                        // participant somehow.
 send(await kex.challenge());     --------->    await kex.generate(receive());
 await kex.generate(receive());   <---------    send(await kex.challenge())
